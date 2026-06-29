@@ -1,5 +1,5 @@
-// Use VITE_API_BASE_URL if defined (e.g. Vercel production), else fallback to localhost
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3001/api';
+// Use VITE_API_BASE_URL if defined, else use relative /api in production, or localhost in dev
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || (import.meta.env.PROD ? '/api' : 'http://localhost:3001/api');
 
 export const analyzeStore = async (url) => {
   const response = await fetch(`${API_BASE_URL}/analyze`, {
