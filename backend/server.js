@@ -13,6 +13,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', analyzeRoutes);
+app.use('/', analyzeRoutes); // Catch-all for when Vercel strips the /api prefix
 
 // Health check
 app.get('/health', (req, res) => {
